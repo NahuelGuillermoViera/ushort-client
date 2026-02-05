@@ -8,7 +8,7 @@ import { environment } from '@/environments/environment';
   providedIn: 'root',
 })
 export class LinkService {
-  private linkURL:string = environment.API_URL;
+  private linkURL:string = environment.POST;
 
   private http = inject(HttpClient);
 
@@ -17,6 +17,6 @@ export class LinkService {
   }
 
   generateLink(link: string): Observable<LinkResponse>{
-    return this.http.post<LinkResponse>(`${this.linkURL}create`, {url: link});
+    return this.http.post<LinkResponse>(`${this.linkURL}`, {url: link});
   }
 }

@@ -1,9 +1,12 @@
-#for dev
-FROM node:21-alpine
-
+# build
+FROM --platform=linux/amd64 node:22.18 AS build
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 COPY . .
 RUN npm run build
-CMD [ "npm", "start" ]
+
+# serve
+FROM --platform=linux/amd64 nginx:alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist/ushort-client/browser /usr/share/nginx/html

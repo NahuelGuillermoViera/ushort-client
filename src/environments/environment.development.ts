@@ -1,3 +1,4 @@
 export const environment = {
-  API_URL: 'http://localhost:8081/'
+  POST: 'http://localhost:8081/create',
+  CLIENT_URL: 'http://localhost:4200/'
 };

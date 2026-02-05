@@ -31,7 +31,9 @@
           Tu url corta en segundos:
         </span>
         <span class="data2">
-          {{ `${apiUrl()}create` + linkResponse().shortPath }}
+          <a href="{{ url() + linkResponse().shortPath }}" target="_blank">
+            {{ url() + linkResponse().shortPath }}
+          </a>
         </span>
       </span>
       <button class="copy" (click)="copy(linkResponse().shortPath)">

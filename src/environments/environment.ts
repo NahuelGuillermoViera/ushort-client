@@ -1,3 +1,4 @@
 export const environment = {
-  API_URL: 'http://localhost:8081/'
+  POST: '/create',
+  CLIENT_URL: 'https://ushort-ushort-client.onrender.com/'
 };

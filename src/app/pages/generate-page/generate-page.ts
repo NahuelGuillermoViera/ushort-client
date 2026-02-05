@@ -13,7 +13,7 @@ import { environment } from '@/environments/environment';
 export class GeneratePage {
   private linkService = inject(LinkService);
   private fb = inject(FormBuilder)
-  apiUrl = signal(environment.API_URL);
+  url = signal(environment.CLIENT_URL+"r/");
 
 
   linkResponse: WritableSignal<LinkResponse> = signal(
@@ -52,7 +52,7 @@ export class GeneratePage {
   async copy(link: string) {
     console.log(link);
     try {
-      await navigator.clipboard.writeText("http://localhost:4200/r/"+link);
+      await navigator.clipboard.writeText(this.url()+link);
     } catch (err){
       console.error('Error al copiar', err);
     }
