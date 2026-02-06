@@ -13,7 +13,7 @@ import { environment } from '@/environments/environment';
 export class GeneratePage {
   private linkService = inject(LinkService);
   private fb = inject(FormBuilder)
-  url = signal(environment.CLIENT_URL+"r/");
+  url = signal(environment.CLIENT_URL+"/r/");
 
 
   linkResponse: WritableSignal<LinkResponse> = signal(
